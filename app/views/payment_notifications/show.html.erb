@@ -1,0 +1,23 @@
+<p>
+  <b>Params:</b>
+  <%=h @payment_notification.params %>
+</p>
+
+<p>
+  <b>Booking:</b>
+  <%=h @payment_notification.booking_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @payment_notification.status %>
+</p>
+
+<p>
+  <b>Transaction:</b>
+  <%=h @payment_notification.transaction_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_payment_notification_path(@payment_notification) %> |
+<%= link_to 'Back', payment_notifications_path %>

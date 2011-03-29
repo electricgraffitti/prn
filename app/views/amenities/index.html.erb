@@ -1,0 +1,22 @@
+<h1>Listing amenities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Resort</th>
+  </tr>
+
+<% @amenities.each do |amenity| %>
+  <tr>
+    <td><%=h amenity.name %></td>
+    <td><%=h amenity.resort_id %></td>
+    <td><%= link_to 'Show', amenity %></td>
+    <td><%= link_to 'Edit', edit_amenity_path(amenity) %></td>
+    <td><%= link_to 'Destroy', amenity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New amenity', new_amenity_path %>

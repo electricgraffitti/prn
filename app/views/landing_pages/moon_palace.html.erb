@@ -1,0 +1,52 @@
+<% content_for :banner do %>
+  <%= render :partial => 'landing_pages/moon_header' %>
+  <%= link_to "Book Moon Palace Now", resort_path(@resort), :class => "landing_page_book_link" %>
+  <div class="banner_pic_wrap landing_banner_pic_wrap left">
+    <ul class="cube_crossfade">
+      <li><%= image_tag("landing_pages/banner1.jpg") %></li>
+      <li><%= image_tag("landing_pages/banner2.jpg") %></li>
+      <li><%= image_tag("landing_pages/banner3.jpg") %></li>
+      <li><%= image_tag("landing_pages/banner4.jpg") %></li>
+    </ul>
+  </div>
+<% end %>
+<div class="landing_sub_box grid_4 omega">
+  <h3>All Inclusive Package</h3>
+  <ul>
+    <li>World Class Service</li>
+    <li>5 Star Dining</li>
+    <li>World Class Spas</li>
+  </ul>
+  <div class="landing_page_sub_box_image"> 
+    <span class="thumbnail_wrap left">
+      <%= image_tag("landing_pages/footer1.jpg") %>   
+    </span>
+  </div>
+</div>
+
+<div class="landing_sub_box grid_4 omega">
+  <h3>Luxurious Accommodations</h3>
+  <ul>
+    <li>In Room Double Jacuzzi</li>
+    <li>Fully Stocked Mini Bar</li>
+    <li>Relaxing Terrace/Balcony</li>
+  </ul>
+  <div class="landing_page_sub_box_image"> 
+    <span class="thumbnail_wrap left">
+      <%= image_tag("landing_pages/footer2.jpg") %>   
+    </span>
+  </div>
+</div>
+<div class="landing_sub_box grid_4 omega">
+  <h3>Unforgettable Memories</h3>
+  <ul>
+    <li>World Class Golf</li>
+    <li>Exciting Family Activities</li>
+    <li>Something for Everyone</li>
+  </ul>
+  <div class="landing_page_sub_box_image"> 
+    <span class="thumbnail_wrap left">
+      <%= image_tag("landing_pages/footer3.jpg") %>   
+    </span>
+  </div>
+</div>

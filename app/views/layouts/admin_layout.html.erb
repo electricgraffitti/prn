@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<%= render :partial => 'layouts/admin_headmeta' %>
+<body class="yui-skin-sam">
+  <div id="header_band"></div>
+  <div id="wrapper" class="container_12">
+  <% unless flash[:notice].nil? %>
+    <div id="flash" class="grid_6 round_bottom" style="display: none">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+	  <div id="hd" class='grid_12'>
+      <%= render :partial => "layouts/header" %>
+	  </div>
+	  <div class="clear"></div>
+    <div id="bd" class="grid_12">
+      <div id="main_content" class="main_content grid_12 alpha omega">
+          <%= yield %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="ft" class="grid_12">
+      <%= render :partial => "layouts/footer" %>
+    </div>
+    <div class="clear"></div>
+	</div>
+</body>
+</html>

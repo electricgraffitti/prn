@@ -1,0 +1,7 @@
+<div class="index_search_wrap round">
+  <% form_tag resort_locations_path, :method => :get do %>
+      <%= label :resort_search, "Select a Destination" %><br/>
+      <%= collection_select(:resort_search, nil, objects, :id, :resort_title) %>
+    <%= submit_tag "Go There Now", :name => nil, :class => "search_btn btn" %>
+  <% end -%>
+</div>

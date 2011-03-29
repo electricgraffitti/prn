@@ -1,0 +1,20 @@
+<div id="slider">
+  <div class="scroll">
+    <div class="scrollContainer">
+      <% resorts.each do |resort|%>
+       <%= render :partial => "layouts/banner", :locals => {:resort => resort} %>
+       <% end %>
+    </div>
+  </div>
+  <div class="banner_nav">
+    <div class="banner_button_wrap">
+      <div class="banner_spacer">
+        <ul class="navigation">
+          <% resorts.each do |resort| %>
+          <li><a href="#banner#{resort.id}"></a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

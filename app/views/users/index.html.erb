@@ -1,0 +1,23 @@
+<div class="grid_10 full_20_wrap"><table id="users_table" class="display">
+  <h1>Registered Users</h1>
+  <thead>  
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Delete User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%=h user.fullname %></td>
+        <td><%=h user.username %></td>
+        <td><%=h user.phone %></td>
+        <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

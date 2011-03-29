@@ -1,0 +1,43 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css" media="screen">
+      h3 { color: #f00; }
+      ul { list-style-type: none; }
+      li { list-style-type: none; }
+    </style>
+</head>
+<body>
+  <h3>ParadiseResortsNow :: Booking</h3>
+  <h4>Customer Name: <%= @user.fullname.titleize %></h4>
+  <ul>
+    <li>Email: <%= @user.username %></li>
+    <li>Phone: <%= @user.phone %></li>
+  </ul>
+  <p>
+  <h4>Suite Information:</h4>
+  <ul>
+    <li>Resort: <%= @suite.resort.name.titleize %></li>
+    <li>Suite Name: <%= @suite.suite_name.titleize %></li>
+    <li>Reference Number: <%= @params[:booking][:reference_number] %></li>
+    <li>Arrival: <%= @params[:booking][:arrival_date] %> </li>
+    <li>Departure: <%= @params[:booking][:departure_date] %></li>
+    <li>Adults: <%= @params[:booking][:adult_count] %></li>
+    <% if (@params[:booking][:additional_adults]).to_i > 0 %>
+    <li>Additional Adults: <%= @params[:booking][:additional_adults] %></li>
+    <% end %>
+    <% if (@params[:booking][:child_count]).to_i > 0 %>
+    <li>Children: <%= @params[:booking][:child_count] %></li>
+    <% end %>
+  </ul>
+    <p>
+      <ul>
+        <li><code>Sent on <%= @sent_on.to_s %></code></li>
+      </ul>
+    </p>
+  </p>
+</body>
+</html>

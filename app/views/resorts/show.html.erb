@@ -1,0 +1,56 @@
+<% page_title "Welcome To #{@resort.name} " %>
+
+<% if @resort.keywords
+  meta_keywords(@resort.keywords)
+  end %>
+<% if @resort.meta_description
+  meta_description(@resort.meta_description)
+  end %>
+
+<% content_for :banner do %>
+  <%= render :partial => "layouts/banner", :locals => {:resort => @resort} %>
+<% end %>
+
+<div class="resort_sub_header round">
+  <h4 class="tan">Resort Suites</h4>
+</div>
+<% @resort.suites.each do |suite| %>
+  <div class="resort_location_resort_wrap">
+    <span class="thumbnail_wrap left">
+      <%= image_tag(suite.suite_pic(:thumb)) %>   
+    </span>
+<div class="suite_specs_list">    <h5><%= suite.suite_name %></h5>
+    <ul class="suite_spec_list_resort_show">
+    <% suite.suite_specs.small_list(4).each do |suite_spec| %>
+      <li><%= suite_spec.spec %></li>
+    <% end %>
+    </ul></div>
+    <div class="suite_book_button">
+      <%= link_to "Book It Now", suite_path(suite), :class => "book_button_small" %>
+    </div>
+  </div>
+<% end %>
+
+
+<% content_for :sidebar do %>
+  <div class="resort_sub_header round">
+    <h4 class="tan">Resort Amenities*</h4>
+  </div>
+  <div class="amenity_wrap">
+    <ul class="resort_feature_list">
+      <% @resort.amenities.regular.each do |amenity| %>
+        <li><%= amenity.name %></li>
+      <% end %>
+    </ul>
+    </div>
+    <div class="resort_sub_header round">
+      <h4 class="tan">Resort Dining</h4>
+    </div>
+    <div class="amenity_wrap">
+      <ul class="resort_feature_list">
+        <% @resort.amenities.dining.each do |amenity| %>
+          <li><%= amenity.name %></li>
+        <% end %>
+      </ul>
+      </div>
+<% end %>

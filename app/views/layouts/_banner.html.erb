@@ -1,0 +1,21 @@
+<!-- local variable called resort -->
+
+<div id="banner<%= resort.id %>" class="panel banner_wrap">
+  <div class="banner_pic_wrap left">
+    <%= image_tag resort.resort_pic(:banner) %>
+  </div>
+  <div class="home_banner_location_wrap round left">
+    <h2 class="index_banner_location_header round"><%= (resort.name).titleize %></h2>
+    <div class="home_banner_location from_price">
+      <span>from:</span><%= resort.from_price %><% if resort.adults_only == true %><span class="adult_only">(Adults Only Resort)</span><% end %>
+    </div>
+    <p>
+      <%= resort.description %>
+    </p>
+    <% unless params[:controller] == "resorts" && params[:action] == "show" %>
+    <div class="book_now_button">
+      <%= link_to "Book Resort Now", resort_path(resort) %>
+    </div>
+    <% end %>
+  </div>
+</div>

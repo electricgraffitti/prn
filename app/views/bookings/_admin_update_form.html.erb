@@ -1,0 +1,49 @@
+<% form_for(@booking) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    Customer Name: <%= @booking.user.fullname %>
+  </p>
+  <p>
+    Resort: <%= @booking.suite.resort.name %>
+  </p>
+  <p>
+    Suite: <%= @booking.suite.suite_name %>
+  </p>
+  <p>
+    Reference Number: <%= @booking.reference_number %>
+  </p>
+  <p>
+    Arrival: <%= @booking.arrival_date.to_s(:nice_date) %>
+  </p>
+  <p>
+    Departure: <%= @booking.departure_date.to_s(:nice_date) %>
+  </p>
+  <p>
+   Number of Adults: <%= @booking.adult_count %>
+  </p>
+  <% unless @booking.additional_adults.blank?%>
+  <p>
+    Additional Adults: <%= @booking.additional_adults %>
+  </p>
+  <% end %>
+  <% unless @booking.child_count.blank?%>
+  <p>
+    Number of Children: <%= @booking.child_count %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.label :approved, "Approve Booking" %><br />
+    <%= f.check_box :approved %>
+  </p>
+  <p>
+    <%= f.label :cancelled, "Booking Cancelled" %><br />
+    <%= f.check_box :cancelled %>
+  </p>
+  <p>
+    <%= f.label :price, "Enter Amount to be Paid (MUST INCLUDE $)" %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.submit 'Update', :class => 'btn', :id => 'booking_update' %>
+  </p>
+<% end %>

@@ -1,0 +1,15 @@
+
+<% content_for :banner do %>
+  <%= render :partial => 'layouts/banners', :locals => {:resorts => @resorts} %>
+<% end %>
+
+<%= render :partial => "paradise/about" %>
+
+<% content_for :sidebar do %>
+  <%= render :partial => "resort_locations/index_search", :locals => {:objects => @resort_locations} %>
+  <% if current_user %>
+  <%= render :partial => "users/user_sidebar_dashboard", :locals => {:user => current_user, :booking => @booking} %>
+  <% else %>
+  <%= render :partial => "users/register_form" %>
+  <% end %>
+<% end %>

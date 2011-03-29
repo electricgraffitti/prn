@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id                :integer(4)      not null, primary key
+#  user_id           :integer(4)
+#  suite_id          :integer(4)
+#  reference_number  :string(255)
+#  arrival_date      :date
+#  departure_date    :date
+#  approved          :boolean(1)
+#  created_at        :datetime
+#  updated_at        :datetime
+#  adult_count       :string(255)
+#  child_count       :string(255)
+#  price             :string(255)
+#  payment_received  :time
+#  additional_adults :string(255)
+#  cancelled         :boolean(1)
+#  terms             :boolean(1)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  suite_id: 1
+  reference_number: MyString
+  arrival_date: 2009-09-13
+  departure_date: 2009-09-13
+  approved: false
+
+two:
+  user_id: 1
+  suite_id: 1
+  reference_number: MyString
+  arrival_date: 2009-09-13
+  departure_date: 2009-09-13
+  approved: false

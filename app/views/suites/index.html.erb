@@ -1,0 +1,51 @@
+<div class="full_wrap">
+  <h1>Suites</h1>
+    <div id="suites_table_wrap">
+      <table id="suites_table">
+        <!-- <tr>
+          <th>Suite name</th>
+          <th>Suite view</th>
+          <th>Resort</th>
+        </tr> -->
+
+      <% @suites.each do |suite| %>
+        <tr>
+          <td><%=h suite.suite_name %></td>
+          <td><%=h suite.suite_view %></td>
+          <td><%=h suite.resort.name %></td>
+          <td><%= link_to 'View', suite %></td>
+          <td><%= link_to 'Edit', edit_suite_path(suite) %></td>
+          <td><%= link_to 'Delete', suite, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+    <%= link_to 'Add a Suite', new_suite_path, :class => 'btn' %>
+    <%= link_to 'Back', admins_path, :class => 'btn' %>
+</div>
+
+<script type="text/javascript">
+var myDataSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("suites_table"));
+myDataSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+myDataSource.responseSchema = {
+    fields: [
+      {key:"Suite"},
+      {key:"Suite View"},
+      {key:"Resort"},
+      {key:"View"},
+      {key:"Edit"},
+      {key:"Delete"}
+    ]
+};
+
+var myColumnDefs = [
+  {key:"Suite"},
+  {key:"Suite View"},
+  {key:"Resort"},
+  {key:"View"},
+  {key:"Edit"},
+  {key:"Delete"}
+];
+
+var myDataTable = new YAHOO.widget.DataTable("suites_table_wrap", myColumnDefs, myDataSource);
+</script>

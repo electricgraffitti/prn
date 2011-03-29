@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<%= render :partial => 'layouts/landing_headmeta' %>
+<body class="yui-skin-sam">
+  <div id="header_band"></div>
+  <div id="wrapper" class="container_12">
+    <div id="flash" class="flash_html round2">
+      <% unless flash[:notice].blank? %>
+      <%= flash[:notice]%>
+      <% end %>
+      <% unless flash[:error].blank? %>
+      <%= flash[:error]%>
+      <% end %>
+    </div>
+	  <div id="hd" class='grid_12'>
+      <%= render :partial => "landing_pages/landing_header" %>
+	  </div>
+	  <div class="clear"></div>
+    <div id="bd" class="grid_12">
+      <div id="banner" class="grid_12 alpha omega">
+        <%= yield :banner %>
+      </div>
+      <div class="clear"></div>
+      <div id="main_content" class="main_content grid_12 alpha omega">
+	      <div id="main_left" class="grid_12 alpha omega">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <div id="ft" class="grid_12">
+      <%= render :partial => "layouts/footer" %>
+    </div>
+    <div class="clear"></div>
+	</div>
+	<%= render :partial => 'layouts/ga_scripts' %>
+	<%= render :partial => 'layouts/scripts' %>
+</body>
+</html>

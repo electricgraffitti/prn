@@ -1,0 +1,52 @@
+<% content_for :banner do %>
+  <%= render :partial => 'landing_pages/sun_header' %>
+  <%= link_to "Book Moon Palace Now", resort_path(@resort), :class => "landing_page_book_link sun_button" %>
+  <div class="banner_pic_wrap landing_banner_pic_wrap left">
+    <ul class="cube_crossfade">
+      <li><%= image_tag("landing_pages/banner5.jpg") %></li>
+      <li><%= image_tag("landing_pages/banner6.jpg") %></li>
+      <li><%= image_tag("landing_pages/banner7.jpg") %></li>
+      <li><%= image_tag("landing_pages/banner8.jpg") %></li>
+    </ul>
+  </div>
+<% end %>
+<div class="landing_sub_box grid_4 omega">
+  <h3>All Inclusive Package</h3>
+  <ul>
+    <li>Exciting Night Life</li>
+    <li>5 Star Restaurants</li>
+    <li>World Class Service</li>
+  </ul>
+  <div class="landing_page_sub_box_image"> 
+    <span class="thumbnail_wrap left">
+      <%= image_tag("landing_pages/footer4.jpg") %>   
+    </span>
+  </div>
+</div>
+
+<div class="landing_sub_box grid_4 omega">
+  <h3>Luxurious Accommodations</h3>
+  <ul>
+    <li>Double Jacuzzi in Room</li>
+    <li>Fully Stocked Liquor Dispensers</li>
+    <li>Luxurious Spa Facilities</li>
+  </ul>
+  <div class="landing_page_sub_box_image"> 
+    <span class="thumbnail_wrap left">
+      <%= image_tag("landing_pages/footer5.jpg") %>   
+    </span>
+  </div>
+</div>
+<div class="landing_sub_box grid_4 omega">
+  <h3>Cancun Spring Break</h3>
+  <ul>
+    <li>Adults Only Resort</li>
+    <li>Clubs & Discoteques</li>
+    <li>Beach Activities</li>
+  </ul>
+  <div class="landing_page_sub_box_image"> 
+    <span class="thumbnail_wrap left">
+      <%= image_tag("landing_pages/footer6.jpg") %>   
+    </span>
+  </div>
+</div>

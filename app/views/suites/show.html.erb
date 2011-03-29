@@ -1,0 +1,34 @@
+<% page_title "Now Viewing #{@suite.suite_name} at #{@suite.resort.name}" %>
+
+<% if @suite.keywords
+  meta_keywords(@suite.keywords)
+  end %>
+<% if @suite.meta_description
+  meta_description(@suite.meta_description)
+  end %>
+
+
+<% content_for :banner do %>
+  <%= render :partial => "suites/suite_banner", :locals => {:suite => @suite} %>
+<% end %>
+
+<div class="resort_sub_header round">
+  <h4 class="tan">Suite Features</h4>
+</div>
+<ul class="spec_feature_list">
+  <% @suite.suite_specs.each do |s_spec|%>
+    <li><%= s_spec.spec %></li>
+  <% end %>
+</ul>
+<div class="clear"></div>
+<div class="full_wrap double_occ">
+  <%= @suite.suite_disclaimer %>
+</div>
+
+<% content_for :sidebar do %>
+  <% if current_user %>
+    <%= render :partial => 'bookings/booking_module', :locals => {:suite => @suite} %>
+  <% else %>
+    <%= render :partial => "users/register_form" %>
+ <% end %>
+<% end %>

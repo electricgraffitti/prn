@@ -1,0 +1,19 @@
+<% page_title "#{@resort_location.resort_title} Luxury Vacation Packages" %>
+
+<% if @resort_location.keywords
+  meta_keywords(@resort_location.keywords)
+  end %>
+<% if @resort_location.meta_description
+  meta_description(@resort_location.meta_description)
+  end %>
+
+
+<div class="full_wrap">
+<p>
+  <b>Resort Name:</b>
+  <%=h @resort_location.resort_title %>
+</p>
+
+<% if current_admin %>
+<%= link_to 'Edit', edit_resort_location_path(@resort_location) %>
+<% end %>

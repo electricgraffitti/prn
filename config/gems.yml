@@ -1,0 +1,5 @@
+--- 
+- :name: authlogic
+- :name: paperclip
+- :version: 2.3.9
+  :name: rails

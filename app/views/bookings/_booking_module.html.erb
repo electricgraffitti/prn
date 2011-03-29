@@ -1,0 +1,48 @@
+<div class="login_panel aqua round">
+  <% form_for(@booking) do |f| %>
+    <%= f.error_messages %>
+
+      <h3><span class="dark_brown">Customer Name:</span> <%= current_user.fullname.titleize %></h3>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    <p>
+      <h3><span class="dark_brown">Suite Name:</span> <%= suite.suite_name.titleize %></h3>
+      <%= f.hidden_field :suite_id, :value => suite.id %>
+    </p>
+    
+      <%= f.hidden_field :reference_number, :value => ((rand(50) + 1) * (rand(50) + 1)) * (rand(50) + 1) %>
+      
+    <p>
+      <%= f.label :arrival_date, "Arrival Date" %><br />
+      <%= f.text_field :arrival_date, :id => "arrival_date" %>
+    </p>
+    <p>
+      <%= f.label :departure_date, "Departure" %><br />
+      <%= f.text_field :departure_date, :id => "departure_date" %>
+    </p>
+    <br/>
+    <%= f.hidden_field :adult_count, :value => 2 %>
+    <p>
+      Package includes 2 adults<br/>
+      <%= f.label :additional_adults, "Additional Adults", :class => "adult_fields" %>
+      <%= f.text_field :additional_adults, :size => 5 %>
+    </p><br/>
+    <% if suite.resort.adults_only == true %>
+    <p>
+      This is an adult only resort +18
+    </p>
+    <% else %>
+    <p>
+      <%= f.label :child_count, "Number of Children", :class => "child_fields" %>
+      <%= f.text_field :child_count, :size => 5 %>
+    </p>
+    <% end %>
+    <p>
+      <%= f.label :terms, "I agree to the #{ link_to 'Terms', policies_and_terms_path}" %><br />
+      <%= f.check_box :terms, :id => "terms_checked" %>
+    </p>
+    <p>
+      <%= f.submit 'Submit Booking Now', :id => "booking_submit", :class => 'btn' %>
+    </p>
+  <% end %>
+  <div class="clear"></div>
+</div>

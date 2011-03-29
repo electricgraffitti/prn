@@ -1,0 +1,24 @@
+<div id="banner<%= suite.id %>" class="panel banner_wrap">
+  <div class="banner_pic_wrap left">
+    <%= image_tag suite.resort.resort_pic(:banner) %>
+  </div>
+  <div class="home_banner_location_wrap round left">
+    <h2 class="index_banner_location_header round"><%= (suite.suite_name).titleize %></h2>
+    <div class="full_wrap">
+      <span>Room View:</span> <%= suite.suite_view %>
+    </div>
+    <div class="home_banner_location from_price full_wrap">
+      <span>&#42;Current Room Rate: </span> <%= suite.price %><br/><br/>
+      <span>Additional Adult Price: <%= suite.additional_adult %> per night</span><br/>
+      <% unless suite.resort.adults_only %>
+      <span>Additional Child Price: <%= suite.additional_child %> per night</span><br/>
+      <% end %>
+    </div>
+    <% if suite.resort.adults_only == true %>
+    <div class="full_wrap">
+      <span>Adults Only Resort: +18</span> 
+    </div>
+    <% end %>
+  </div>
+
+</div>

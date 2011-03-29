@@ -1,0 +1,6 @@
+<%= link_to "<h1 id='logo'>Paradise Resorts Now - All inclusive resort getaways to Mexico and the Dominican Republic</h1>", root_path %>
+
+<% if current_user %>
+<div class="tan user_welcome">Welcome <%= current_user.fullname %></div>
+<% end %>
+<%= render :partial => "layouts/main_nav" %>

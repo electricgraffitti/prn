@@ -1,0 +1,23 @@
+<p>
+  <b>Activity type:</b>
+  <%=h @activity.activity_type %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @activity.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @activity.description %>
+</p>
+
+<p>
+  <b>Resort:</b>
+  <%=h @activity.resort_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

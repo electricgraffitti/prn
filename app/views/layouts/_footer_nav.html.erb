@@ -1,0 +1,13 @@
+<div class="footer_nav">
+	<ul>
+		<li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Resorts", resort_locations_path %></li>
+    <li><%= link_to "Policies", policies_and_terms_path %></li>
+    <% if current_admin %>
+      <li><%= link_to "Admin Dashboard", admins_path  %></li>
+     <li class="last"><%= link_to "Admin Logout", admin_logout_path  %></li>
+     <% else %>	
+    <li class="last"><%= link_to "Admin Login",  admin_login_path %></li>
+    <% end %>	
+	</ul>
+</div>

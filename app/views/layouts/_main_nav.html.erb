@@ -1,0 +1,16 @@
+<div id="main_nav" class="round_top2">
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Resorts", resort_locations_path %></li>
+    <% if current_admin %>
+    <li><%= link_to "Admin Dashboard", admins_path %></li>
+    <li><%= link_to "Admin Logout", admin_logout_path %></li>
+    <% else %>
+      <% if current_user %>
+        <li><%= link_to "Logout", user_logout_path %></li>
+      <% else %>
+        <li><%= link_to "User Login", user_login_path %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

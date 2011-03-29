@@ -1,0 +1,32 @@
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :fullname, "Full Name" %><br />
+    <%= f.text_field :fullname %>
+  </p>
+  <p>
+    <%= f.label :username, "Email (will be username)" %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :phone, "Phone (xxx-xxx-xxxx)" %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <% if current_admin %>
+  <p>
+    <%= f.check_box :demo_user %>
+    <%= f.label :demo_user, "Demo User" %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.submit 'Submit', :class => "btn" %>
+  </p>
+<% end %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @amenity.name %>
+</p>
+
+<p>
+  <b>Resort:</b>
+  <%=h @amenity.resort_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_amenity_path(@amenity) %> |
+<%= link_to 'Back', amenities_path %>

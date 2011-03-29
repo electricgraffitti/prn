@@ -1,0 +1,14 @@
+<div class="suite_spec">
+  <% fields_for "suite[suite_suite_specs[]]", suite_spec do |suite_specs_form| %>
+  <p>
+    <%= suite_specs_form.text_field :spec, :index => nil %>
+    <% if suite_spec.new_record? %>
+        <%= link_to_function "Remove", "", :class => 'remove_new_spec' %>
+    <% else %>
+        <%= link_to_function "Remove", "", :class => 'remove_spec' %>
+        <%= suite_specs_form.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+        <%= suite_specs_form.hidden_field :id, :index => nil %>
+    <% end %>
+  </p>
+  <% end %>
+</div>

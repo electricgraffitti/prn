@@ -1,0 +1,59 @@
+<div class="full_wrap">
+  <h1>Resorts</h1>
+  <div id="resorts_table_wrap">
+    <table id="resorts_table">
+      <!-- <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Resort location</th>
+      <th>From Price</th>
+      </tr> -->
+
+    <% @resorts.each do |resort| %>
+      <tr>
+        <td><%=h resort.name %></td>
+        <td><%=h resort.resort_location.resort_title %></td>
+    	  <td><%=h resort.from_price %></td>
+    	  <% if resort.adults_only? %>
+    	  <td>Yes</td>
+    	  <% else %>
+    	  <td>No</td>
+    	  <% end %>
+        <td><%= link_to 'Show', resort %></td>
+        <td><%= link_to 'Edit', edit_resort_path(resort) %></td>
+        <td><%= link_to 'Destroy', resort, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+  <%= link_to 'Setup New Resort', new_resort_path, :class => 'btn' %>
+  <%= link_to 'Back', admins_path, :class => 'btn' %>
+</div>
+
+<script type="text/javascript">
+var myDataSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("resorts_table"));
+myDataSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+myDataSource.responseSchema = {
+    fields: [
+      {key:"Resort"},
+      {key:"Location"},
+      {key:"From Price"},
+      {key:"Adults Only"},
+      {key:"View"},
+      {key:"Edit"},
+      {key:"Delete"}
+    ]
+};
+
+var myColumnDefs = [
+  {key:"Resort"},
+  {key:"Location"},
+  {key:"From Price"},
+  {key:"Adults Only"},
+  {key:"View"},
+  {key:"Edit"},
+  {key:"Delete"}
+];
+
+var myDataTable = new YAHOO.widget.DataTable("resorts_table_wrap", myColumnDefs, myDataSource);
+</script>

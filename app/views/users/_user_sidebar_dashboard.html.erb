@@ -1,0 +1,59 @@
+<div class="login_panel aqua round">
+  <h3>Welcome <%= user.fullname.titleize %></h3>
+  <div class="user_dashboard_inner_wrap">
+  <% if booking.blank? %>
+    <p>No current bookings</p>
+  <% else %>
+    <% if booking.cancelled == true %>
+      <p>Your recent booking has been canceled</p>
+    <% else %>
+      <p>
+        Resort: <%= booking.suite.resort.name %>
+      </p>
+      <p>
+        Suite: <%= booking.suite.suite_name %>
+      </p>
+      <p>
+        Arrival Date: <%= booking.arrival_date.to_s(:nice_date) %>
+      </p>
+      <p>
+        Departure Date: <%= booking.departure_date.to_s(:nice_date) %>
+      </p>
+      <p>
+        Adults: <%= booking.adult_count %>
+      </p>
+      <% if booking.suite.resort.adults_only == true %>
+        <p>
+          Children: <%= booking.suite.resort.name %> is an Adults Only Resort
+        </p>
+      <% else %>
+        <% unless booking.additional_adults.blank? %>
+          <p>
+            Additional Adults: <%= booking.additional_adults %>
+          </p>
+        <% end %>
+        <% unless booking.child_count.blank? %>
+          <p>
+            Number of Children: <%= booking.child_count %>
+          </p>
+        <% end %>
+      <% end %>
+      <div class="paypal_box">
+        <% if booking.approved == true %>
+          <% if booking.payment_received.nil? %>
+            <p>
+              Payment Amount: <%= booking.price %>
+              <%= link_to "PAY NOW", @booking.paypal_url(root_url, payment_notifications_url), :class => "paypal_button"%>
+            </p>
+          <% else %>
+           <h3>Purchase Complete. Thank You</h3>
+           <p>Printer friendly receipt has been sent to your email.</p>
+          <% end %>
+        <% else %>
+          <h3>Reservation Availability Pending</h3>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+</div>

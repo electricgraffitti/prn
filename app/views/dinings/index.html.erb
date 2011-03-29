@@ -1,0 +1,24 @@
+<h1>Listing dinings</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Resort</th>
+  </tr>
+
+<% @dinings.each do |dining| %>
+  <tr>
+    <td><%=h dining.name %></td>
+    <td><%=h dining.description %></td>
+    <td><%=h dining.resort_id %></td>
+    <td><%= link_to 'Show', dining %></td>
+    <td><%= link_to 'Edit', edit_dining_path(dining) %></td>
+    <td><%= link_to 'Destroy', dining, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dining', new_dining_path %>

@@ -1,0 +1,22 @@
+<h1>Listing suite_specs</h1>
+
+<table>
+  <tr>
+    <th>Suite</th>
+    <th>Spec</th>
+  </tr>
+
+<% @suite_specs.each do |suite_spec| %>
+  <tr>
+    <td><%=h suite_spec.suite_id %></td>
+    <td><%=h suite_spec.spec %></td>
+    <td><%= link_to 'Show', suite_spec %></td>
+    <td><%= link_to 'Edit', edit_suite_spec_path(suite_spec) %></td>
+    <td><%= link_to 'Destroy', suite_spec, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New suite_spec', new_suite_spec_path %>

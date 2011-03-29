@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css" media="screen">
+      h3 { color: #f00; }
+      ul { list-style-type: none; padding: none; margin: none; }
+      li { list-style-type: none; }
+      .paypal_button { 
+        margin-top: 5px;
+    	  background: url("https://www.paypal.com/en_US/i/btn/btn_paynow_LG.gif") no-repeat;
+    	  text-indent: -3000em;
+    	  display: block;
+    	  width: 200px;
+    	  height: 200px;
+    	}
+    </style>
+</head>
+<body>
+  <% if @booking.cancelled == true %>
+    <h3>Booking Canceled :: ParadiseResortsNow</h3>
+    <h4>Dear <%= @user.fullname %>,</h4>
+      Your booking has been canceled. Thank you for choosing Paradise Resorts Now.
+      Please come back soon for you dream vacation<br/>
+  <% else %>
+  <h3>Booking Approved :: ParadiseResortsNow</h3>
+  <h4>Dear <%= @user.fullname %>,</h4>
+    Your booking has been approved. Thank you for choosing Paradise Resorts Now.
+    Verify your information below and complete payment.<br/>
+  <ul>
+    <li>Booking Total: <%= @price %>.00<li>
+    <li>Customer: <%= @user.fullname %><li>
+    <li>Email: <%= @user.username %></li>
+    <li>Phone: <%= @user.phone %></li>
+  </ul>
+  <p>
+  <h4>Suite Information:</h4>
+  <ul>
+    <li>Reference Number: <%= @booking.reference_number %></li>
+    <li>Arrival: <%= @booking.arrival_date %> </li>
+    <li>Departure: <%= @booking.departure_date %></li>
+    <li>Number of Adults: 2</li>
+    <% if @booking.additional_adults %>
+    <li>Additional Adults: <%= @booking.additional_adults %></li>
+    <% end %>
+    <% if @booking.child_count %>
+      <li>Number of Children: <%= @booking.child_count %></li>
+    <% end %>
+  </ul>
+  Booking Total: <%= @price %>.00</li>
+  Complete Payment here: <%= link_to "PAY NOW", @booking.paypal_url(payment_thank_you_url, PAYMENT_URL), :class => "paypal_button" %>
+    <p>
+      <ul>
+        <li><code>Sent on <%= @sent_on.to_s %></code></li>
+      </ul>
+    </p>
+  </p>
+  <% end %>
+</body>
+</html>

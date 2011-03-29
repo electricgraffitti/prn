@@ -1,0 +1,100 @@
+/******************************************/
+/***************LANDING PAGES**************/
+#banner {
+	background:#F2E7DA url('../images/landing_pages/moon_banner_bg.png') no-repeat;
+	height:303px;
+	position:relative;
+	width:940px;
+	border-bottom: none;
+}
+#main_content {
+	background:#fff none repeat scroll 0 0;
+	float:left;
+	position:relative;
+	width:100%;
+}
+#main_left {
+	background:#fff none repeat scroll 0 0;
+	min-height: 0px;
+}
+#sidebar {
+	background:#F2E7DA none repeat scroll 0 0;
+}
+.moon_landing_header {
+	position: absolute;
+	top: -55px;
+	left: 9px;
+	text-indent: -3000em;
+	width: 620px;
+	height: 95px;
+	background: url('../images/landing_pages/moon_palace_cancun_header.png') no-repeat;
+	z-index: 50;
+}
+.sun_landing_header {
+	background: url('../images/landing_pages/sun_palace_cancun_header.png') no-repeat;
+}
+.moon_landing_badge {
+	position: absolute;
+	top: -85px;
+	right: 0px;
+	text-indent: -3000em;
+	width: 290px;
+	height: 250px;
+	background: url('../images/landing_pages/moon_palace_cancun_badge_no_sun.png') no-repeat;
+}
+.sun_landing_badge {
+	top: -79px;
+	width: 296px;
+	height: 250px;
+	background: url('../images/landing_pages/sun_palace_badge.png') no-repeat;
+}
+.landing_page_book_link {
+	position: absolute;
+	display: block;
+	text-indent: -3000em;
+	width: 235px;
+	height: 70px;
+	bottom: 115px;
+	right: 19px;
+	background: url('../images/booking_button_yellow.png') 0px -70px no-repeat;
+}
+.sun_button {
+	background: url('../images/booking_button_sun.png') 0px -70px no-repeat;
+}
+.landing_page_book_link:hover {
+	background: url('../images/booking_button_yellow.png') 0px 0px no-repeat;
+}
+.sun_button:hover {
+	background: url('../images/booking_button_sun.png') 0px -70px no-repeat;
+}
+.landing_banner_pic_wrap {
+	border: 1px solid #332b24;
+	margin: 10px;
+	width: 600px;
+	padding: 3px;
+	height: 270px;
+}
+.landing_sub_box {
+	height: 200px;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+.landing_sub_box ul {
+	width: 200px;
+	margin: 10px auto;
+	text-align: left;
+}
+.landing_sub_box ul li {
+	list-style-type: disc;
+}
+.landing_page_sub_box_image {
+	margin: 0px auto;
+	position: relative;
+	bottom: 5px;
+	left: 35px;
+}
+ul.cube_crossfade {
+	width: 600px;
+	height: 270px;
+}

@@ -1,0 +1,18 @@
+<div class="amenity">  
+  <% fields_for "resort[resort_amenities[]]", amenity do |amenity_form| %>
+    <p>
+      <%= amenity_form.text_field :name, :index => nil %>
+
+      <% if amenity.new_record? %>
+        <%= link_to_function "Remove", "", :class => 'new_amenity_remove' %>
+      <% else %>
+        <%= link_to_function "Remove", "", :class => 'amenity_remove' %>
+        <%= amenity_form.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+        <%= amenity_form.hidden_field :id, :index => nil %>
+      <% end %>
+      <br/>
+      <%= amenity_form.check_box :is_dining, :index => nil %>
+      <%= amenity_form.label :in_dining, 'Dining' %>
+    </p>
+  <% end %>
+</div>

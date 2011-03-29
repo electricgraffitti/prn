@@ -1,0 +1,6 @@
+$(document).ready(function() {
+	$("#add_spec").click(function() {
+		$(".spec_field").add('<%= escape_javascript(render(:partial => "suite_specs/spec_field")) %>');
+		return false;
+	});
+});

@@ -1,0 +1,24 @@
+<div class="full_wrap admin_index">
+  <h1>Administration Dashboard</h1>
+  <div class="grid_12">
+    <h4>Bookings</h4>
+    <%= link_to "Current Bookings", bookings_path()  %>
+    <%= link_to "Cancelled Bookings", bookings_path() %>
+  </div>
+  <div class="grid_12">
+    <h4>Current Resorts</h4>
+    <%= link_to "Current Resorts", resorts_path %>
+    <%= link_to "Location List", resort_locations_path %>
+    <%= link_to "Suite List", suites_path %>
+  </div>
+  <div class="grid_12">
+    <h4>New Resorts</h4>
+    <%= link_to "Setup a Resort", new_resort_path %>
+    <%= link_to "Add a Suite", new_suite_path %>
+    <%= link_to 'Add a Location', new_resort_location_path %>
+  </div>
+  <div class="grid_12">
+    <h4>Registered Users</h4>
+    <%= link_to "Customer List", users_path %>
+  </div>
+</div>

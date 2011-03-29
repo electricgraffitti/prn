@@ -1,0 +1,13 @@
+<p>
+  <b>Username:</b>
+  <%=h @admin.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @admin.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>

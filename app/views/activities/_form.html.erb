@@ -1,0 +1,24 @@
+
+<% form_for(@activity) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :activity_type %><br />
+    <%= f.text_field :activity_type %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :resort_id %><br />
+    <%= f.text_field :resort_id %>
+  </p>
+  <p>
+    <%= f.submit 'Submit', :class => "btn" %>
+  </p>
+<% end %>

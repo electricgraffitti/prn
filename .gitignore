@@ -1,0 +1,9 @@
+log/development.log
+log/bullet.log
+log/*.log
+log/*.pid
+db/schema.sql
+.DS_Store
+.sqlite3
+public/assets/*
+public/cache/*

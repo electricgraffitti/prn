@@ -1,0 +1,68 @@
+<% javascript formatted_new_suite_spec_url("js") %>
+<% form_for(@suite, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="grid_4">
+    <h4 class="suite_spec_header">Suite Description</h4>
+    <p>
+      <%= f.label :suite_name, "Suite Name (ex... Junior Suite)" %><br />
+      <%= f.text_field :suite_name %>
+    </p>
+    <p>
+      <%= f.label :suite_view, "Suite View (ex..Ocean, Garden)" %><br />
+      <%= f.text_field :suite_view %>
+    </p>
+    <p>
+      <%= f.label :price, "Base Price-(include $)" %><br />
+      <%= f.text_field :price %>
+    </p>
+    <p>
+      <%= f.label :additional_adult, "Add'l Adult Cost-(include $)" %><br />
+      <%= f.text_field :additional_adult %>
+    </p>
+    <p>
+      <%= f.label :additional_child, "Add'l Child Cost-(include $)" %><br />
+      <%= f.text_field :additional_child %>
+    </p>
+    <p>
+      <%= f.label :suite_disclaimer, "Suite Disclaimer, (include *asterisk before & comma after each entry.  needs to include stay length, max. occ. etc..)" %><br />
+      <%= f.text_area :suite_disclaimer, :rows => 3, :cols => 28 %>
+    </p>
+    <p>
+      <%= f.label :collection_select, "Select resort where the suite is at" %>
+      <%= collection_select(:suite, :resort_id, @resorts, :id, :name, :prompt => 'Resort Locations' )%>
+    </p>
+    <p>
+      <%= f.label :suite_pic, "Upload New Image" %><br />
+      <%= f.file_field :suite_pic, :size => 16 %>
+    </p>
+  </div>
+  <div class="grid_4">
+    <h4 class="suite_spec_header">Suite Specs (amenities)</h4>
+    <div id="suite_specs">
+      <%= render :partial => 'suite_specs/suite_spec', :collection => @suite.suite_specs %>
+    </div>
+    <%= link_to_function "Add a Suite Amenity" do |page| 
+      page.insert_html :bottom, :suite_specs, :partial => 'suite_specs/suite_spec', :object => SuiteSpec.new
+        end %>
+  </div>
+  <div class="grid_3">
+    <h4 class="suite_spec_header">SEO Data</h4>
+    <p>
+      <%= f.label :permalink, "URL Link (some-location-name)" %><br />
+      <%= f.text_field :permalink %>
+    </p>
+    <p>
+      <%= f.label :keywords, "Keyword Phrases (comma separated, lower case)" %><br />
+      <%= f.text_field :keywords %>
+    </p>
+    <p>
+      <%= f.label :meta_description, "Search Engine Description" %><br />
+      <%= f.text_area :meta_description, :rows => 5, :cols => 28 %>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <p>
+    <%= f.submit 'Submit', :class => 'btn' %>
+  </p>
+<% end %>

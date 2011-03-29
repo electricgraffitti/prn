@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @dining.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @dining.description %>
+</p>
+
+<p>
+  <b>Resort:</b>
+  <%=h @dining.resort_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_dining_path(@dining) %> |
+<%= link_to 'Back', dinings_path %>

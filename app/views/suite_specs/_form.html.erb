@@ -1,0 +1,15 @@
+<% form_for(@suite_spec) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :suite_id %><br />
+    <%= f.text_field :suite_id %>
+  </p>
+  <p>
+    <%= f.label :spec %><br />
+    <%= f.text_field :spec %>
+  </p>
+  <p>
+    <%= f.submit 'Submit', :class => 'btn' %>
+  </p>
+<% end %>

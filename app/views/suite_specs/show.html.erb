@@ -1,0 +1,13 @@
+<p>
+  <b>Suite:</b>
+  <%=h @suite_spec.suite_id %>
+</p>
+
+<p>
+  <b>Spec:</b>
+  <%=h @suite_spec.spec %>
+</p>
+
+
+<%= link_to 'Edit', edit_suite_spec_path(@suite_spec) %> |
+<%= link_to 'Back', suite_specs_path %>

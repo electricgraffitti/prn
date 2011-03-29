@@ -1,0 +1,62 @@
+<div class="full_20_wrap"><table id="bookings_table" class="display">
+  <h1>Booking Listings</h1>
+  <thead>  
+    <tr>
+      <th>Customer Name</th>
+      <th>Resort</th>
+      <th>Suite</th>
+      <th>Ref #</th>
+      <th>Arrival</th>
+      <th>Depart</th>
+      <th>Adlt</th>
+      <th>Add Adlt</th>
+      <th>Chld</th>
+      <th>Approve</th>
+      <th>Cancel</th>
+      <th>Price</th>
+      <th>Update</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <% unless booking.user.nil? %>
+      <tr>
+        <td><%=h booking.user.fullname%></td>
+        <td><%=h booking.suite.resort.name %></td>
+        <td><%=h booking.suite.suite_name %></td>
+        <td><%=h booking.reference_number %></td>
+        <td><%=h booking.arrival_date %></td>
+        <td><%=h booking.departure_date %></td>
+        <td><%=h booking.adult_count %></td>
+        <td><%=h booking.additional_adults %></td>
+        <td><%=h booking.child_count %></td>
+
+        <td>
+        <% if booking.approved == true %>
+        Booking Approved
+        <% else %>
+        <%= link_to "Approve", edit_booking_path(booking) %>
+        </td>
+        <% end %>
+        <td>
+        <% if booking.cancelled == true %>
+        Booking Cancelled
+        <% else %>
+        <%= link_to "Cancel", edit_booking_path(booking) %>
+        </td>
+        <% end %>
+        <td>
+        <% if booking.price.blank? %>
+        <%= link_to "Update Price", edit_booking_path(booking)%>
+        <% else %>
+        <%= booking.price %>
+        <% end %>
+        </td>
+        <td><%= link_to 'Update', edit_booking_path(booking) %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,51 @@
+<% content_for :banner do %>
+  <%= render :partial => "bookings/bookings_banner" %>
+<% end %>
+
+
+  <div class="resort_sub_header round">
+    <h4 class="tan">Thank You</h4>
+  </div>
+  <div class="full_wrap">
+    <div class="user_dashboard_inner_wrap">
+      <p>
+        Resort: <%= @booking.suite.resort.name %>
+      </p>
+      <p>
+        Suite: <%= @booking.suite.suite_name %>
+      </p>
+      <p>
+        Arrival Date: <%= @booking.arrival_date.to_s(:nice_date) %>
+      </p>
+      <p>
+        Departure Date: <%= @booking.departure_date.to_s(:nice_date) %>
+      </p>
+      <p>
+        Adults: <%= @booking.adult_count %>
+      </p>
+      <% if @booking.suite.resort.adults_only == true %>
+      <p>
+        Children: <%= @booking.suite.resort.name %> is an Adults Only Resort
+      </p>
+      <% else %>
+        <% unless @booking.additional_adults.blank? %>
+        <p>
+          Additional Adults: <%= @booking.additional_adults %>
+        </p>
+        <% end %>
+        <% unless @booking.child_count.blank? %>
+          <p>
+            Number of Children: <%= @booking.child_count %>
+          </p>
+        <% end %>
+      <% end %>
+      <div class="paypal_box">
+      <% if @booking.approved == true %>
+      Display paypal stuff
+      <% else %>
+      <h3>Reservation Availability Pending</h3>
+      <% end %>
+      </div>
+    </div>
+    <span class="big_bold_text"><%= link_to 'Return to your user dashboard', root_path %></span>
+</div>
