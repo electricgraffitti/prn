@@ -38,8 +38,9 @@
 # See all the options for Passenger, Apache vhosts, and MySQL in the
 # respective templates: moonshine/lib/moonshine/manifest/rails/templates
 :passenger:
-  :max_pool_size: 3
+  :max_pool_size: 2
   :use_global_queue: true
+  :version: 2.2.15
 :mysql:
   :innodb_buffer_pool_size: 128M
 
